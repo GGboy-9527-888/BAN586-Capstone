@@ -2,105 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Xuanzhong Chen · Tableau Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: #f5f5f7;
-      color: #111827;
-    }
-
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1.5rem;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-
-    header p {
-      margin: 0.2rem 0;
-      color: #4b5563;
-    }
-
-    .card {
-      background: #ffffff;
-      padding: 1.25rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .card h2 {
-      margin-top: 0;
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <header>
-      <h1>My Tableau Dashboard</h1>
-      <p>Embedded directly from Tableau Public</p>
-    </header>
-
-    <section class="card">
-      <h2>Story 1 Dashboard</h2>
-
-      <!-- ⭐ YOUR TABLEAU EMBED CODE (unchanged) ⭐ -->
-      <div class='tableauPlaceholder' id='viz1763020154033' style='position: relative'>
-        <noscript>
-          <a href='#'>
-            <img alt='Story 1 ' src='https://public.tableau.com/static/images/12/1200_17630201338440/Story1/1_rss.png' style='border: none' />
-          </a>
-        </noscript>
-
-        <object class='tableauViz' style='display:none;'>
-          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-          <param name='embed_code_version' value='3' />
-          <param name='site_root' value='' />
-          <param name='name' value='1200_17630201338440/Story1' />
-          <param name='tabs' value='no' />
-          <param name='toolbar' value='yes' />
-          <param name='static_image' value='https://public.tableau.com/static/images/12/1200_17630201338440/Story1/1.png' />
-          <param name='animate_transition' value='yes' />
-          <param name='display_static_image' value='yes' />
-          <param name='display_spinner' value='yes' />
-          <param name='display_overlay' value='yes' />
-          <param name='display_count' value='yes' />
-          <param name='language' value='en-US' />
-          <param name='filter' value='publish=yes' />
-        </object>
-      </div>
-
-      <script type='text/javascript'>
-        var divElement = document.getElementById('viz1763020154033');
-        var vizElement = divElement.getElementsByTagName('object')[0];
-        vizElement.style.width = '100%';
-        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-        var scriptElement = document.createElement('script');
-        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-        vizElement.parentNode.insertBefore(scriptElement, vizElement);
-      </script>
-      <!-- ⭐ END OF EMBED CODE ⭐ -->
-
-    </section>
-  </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Provider Search · BAN586 Capstone</title>
+  <title>Healthcare Market Intelligence Report System</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
@@ -118,11 +20,12 @@
 
     header {
       margin-bottom: 1.5rem;
+      text-align: center;
     }
 
     header h1 {
       margin: 0 0 0.3rem;
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
     header p {
@@ -131,14 +34,52 @@
       font-size: 0.9rem;
     }
 
-    .search-card {
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      transition: background 0.15s, transform 0.08s, box-shadow 0.15s;
+    }
+
+    .tab-btn:hover {
+      background: #e5e7eb;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+
+    .tab-btn.active {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: white;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.45);
+    }
+
+    .card {
       background: #ffffff;
-      padding: 1rem 1.25rem 1.25rem;
       border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 1.25rem 1.5rem 1.5rem;
       margin-bottom: 1.5rem;
     }
 
+    .card h2 {
+      margin-top: 0;
+    }
+
+    /* Search section */
     .search-row {
       display: flex;
       flex-wrap: wrap;
@@ -174,10 +115,46 @@
       box-shadow: 0 0 0 1px rgba(37,99,235,0.4);
     }
 
+    .filters-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
     .results-info {
       font-size: 0.85rem;
       color: #6b7280;
-      margin-bottom: 0.5rem;
+    }
+
+    .btn-small {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .btn-small:hover:not(:disabled) {
+      background: #e5e7eb;
+    }
+
+    .btn-small:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    .btn-clear {
+      border-color: #f97316;
+      color: #c2410c;
+    }
+
+    .btn-export {
+      border-color: #16a34a;
+      color: #166534;
     }
 
     table {
@@ -224,39 +201,29 @@
       align-items: center;
       font-size: 0.8rem;
       color: #6b7280;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     .pagination-controls {
       display: flex;
       gap: 0.4rem;
+      align-items: center;
     }
 
-    .btn {
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      background: #f9fafb;
-      cursor: pointer;
+    #section-dashboard, #section-search {
+      display: none;
+    }
+
+    #section-dashboard.active, #section-search.active {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
       font-size: 0.8rem;
-    }
-
-    .btn:disabled {
-      opacity: 0.5;
-      cursor: default;
-    }
-
-    .btn-primary {
-      background: #2563eb;
-      color: white;
-      border-color: #2563eb;
-    }
-
-    .btn:hover:not(:disabled) {
-      background: #e5e7eb;
-    }
-
-    .btn-primary:hover:not(:disabled) {
-      background: #1d4ed8;
+      color: #9ca3af;
+      margin-top: 1rem;
     }
 
     @media (max-width: 640px) {
@@ -272,16 +239,90 @@
 <body>
   <div class="page">
     <header>
-      <h1>Provider Search</h1>
-      <p>BAN586 Capstone · Search the provider data warehouse by name, NPI, specialty, and location.</p>
-      <p style="font-size:0.8rem; color:#9ca3af;">Data source: 545project dataset converted from Access.</p>
+      <h1>Healthcare Market Intelligence Report System</h1>
+      <p>Healthcare Dashboard &amp; Data Warehouse Search</p>
+      <p style="font-size:0.8rem; color:#9ca3af;">By Xuanzhong Chen</p>
     </header>
 
-    <section class="search-card">
+    <nav>
+      <button class="tab-btn active" data-target="section-dashboard">Dashboard</button>
+      <button class="tab-btn" data-target="section-search">Data Warehouse</button>
+    </nav>
+
+    <!-- DASHBOARD SECTION -->
+    <section id="section-dashboard" class="card active">
+      <h2>Tableau Story Dashboard</h2>
+      <p style="font-size:0.9rem; color:#4b5563;">
+        Interactive Tableau story embedded from Tableau Public.
+      </p>
+
+      <!-- NEW Tableau embed code -->
+      <div style="margin-top:0.75rem;">
+        <div class='tableauPlaceholder' id='viz1764225326698' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Story 1 ' src='https://public.tableau.com/static/images/ta/tableaufinished/Story1/1_rss.png' style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='tableaufinished/Story1' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https://public.tableau.com/static/images/ta/tableaufinished/Story1/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement2 = document.getElementById('viz1764225326698');
+          var vizElement2 = divElement2.getElementsByTagName('object')[0];
+          vizElement2.style.width='100%';
+          vizElement2.style.height=(divElement2.offsetWidth*0.75)+'px';
+          var scriptElement2 = document.createElement('script');
+          scriptElement2.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement2.parentNode.insertBefore(scriptElement2, vizElement2);
+        </script>
+      </div>
+    </section>
+
+    <!-- SEARCH SECTION -->
+    <section id="section-search" class="card">
+      <h2>Provider Data Warehouse Search</h2>
+      <p style="font-size:0.9rem; color:#4b5563;">
+        Filter providers by <strong>Cred</strong>, <strong>Full Name</strong>, <strong>Pri_spec</strong>, <strong>Facility Name</strong>, and <strong>State</strong>. Data loaded from <code>providers.json</code>.
+      </p>
+
+      <!-- Filters -->
       <div class="search-row">
         <div class="field">
-          <label for="searchText">Search (name, NPI, facility, city…)</label>
-          <input type="text" id="searchText" placeholder="Type a name, NPI, specialty, city, etc.">
+          <label for="fullNameSearch">Full Name</label>
+          <input type="text" id="fullNameSearch" placeholder="e.g., Smith, John">
+        </div>
+        <div class="field">
+          <label for="credFilter">Cred</label>
+          <select id="credFilter">
+            <option value="">All credentials</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="search-row">
+        <div class="field">
+          <label for="specFilter">Pri_spec</label>
+          <select id="specFilter">
+            <option value="">All specialties</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="facilitySearch">Facility Name</label>
+          <input type="text" id="facilitySearch" placeholder="e.g., Hospital name">
         </div>
         <div class="field">
           <label for="stateFilter">State</label>
@@ -289,45 +330,73 @@
             <option value="">All states</option>
           </select>
         </div>
-        <div class="field">
-          <label for="specFilter">Primary specialty</label>
-          <select id="specFilter">
-            <option value="">All specialties</option>
-          </select>
+      </div>
+
+      <div class="filters-footer">
+        <div class="results-info" id="resultsInfo">
+          Loading data…
+        </div>
+        <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+          <button class="btn-small btn-clear" id="clearFilters">Clear filters</button>
+          <button class="btn-small btn-export" id="exportCsvBtn" disabled>Export filtered to CSV</button>
         </div>
       </div>
-      <div class="results-info" id="resultsInfo">
-        Loading data…
-      </div>
+
+      <!-- Results table -->
       <div style="overflow-x:auto;">
         <table id="resultsTable">
           <thead>
             <tr>
-              <th>NPI</th>
+              <th>Cred</th>
               <th>Full Name</th>
-              <th>Primary Specialty</th>
+              <th>Pri_spec</th>
               <th>Facility Name</th>
-              <th>City</th>
               <th>State</th>
-              <th>Phone</th>
-              <th>Facility Type</th>
             </tr>
           </thead>
           <tbody id="resultsBody">
-            <tr><td colspan="8" class="no-results">Loading…</td></tr>
+            <tr><td colspan="5" class="no-results">Loading…</td></tr>
           </tbody>
         </table>
       </div>
+
       <div class="pagination" id="pagination">
         <div id="pageInfo"></div>
         <div class="pagination-controls">
-          <button class="btn" id="prevPage">Previous</button>
-          <button class="btn" id="nextPage">Next</button>
+          <button class="btn-small" id="prevPage">Previous</button>
+          <button class="btn-small" id="nextPage">Next</button>
         </div>
       </div>
     </section>
+
+    <footer>
+      Healthcare Market Intelligence Report System · Tableau + Online Data Warehouse Search
+    </footer>
   </div>
 
+  <!-- Tab switching -->
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const sections = {
+      'section-dashboard': document.getElementById('section-dashboard'),
+      'section-search': document.getElementById('section-search')
+    };
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        Object.keys(sections).forEach(id => {
+          sections[id].classList.toggle('active', id === target);
+        });
+      });
+    });
+  </script>
+
+  <!-- Data warehouse search JS -->
   <script>
     const PAGE_SIZE = 50;
 
@@ -335,9 +404,14 @@
     let filteredData = [];
     let currentPage = 1;
 
-    const searchInput = document.getElementById('searchText');
+    const fullNameInput = document.getElementById('fullNameSearch');
+    const credFilter = document.getElementById('credFilter');
+    const facilityInput = document.getElementById('facilitySearch');
     const stateFilter = document.getElementById('stateFilter');
     const specFilter = document.getElementById('specFilter');
+    const clearFiltersBtn = document.getElementById('clearFilters');
+    const exportCsvBtn = document.getElementById('exportCsvBtn');
+
     const resultsBody = document.getElementById('resultsBody');
     const resultsInfo = document.getElementById('resultsInfo');
     const pageInfo = document.getElementById('pageInfo');
@@ -354,10 +428,19 @@
       })
       .catch(err => {
         console.error(err);
-        resultsInfo.textContent = "Error loading data. Make sure providers.json is uploaded to the same folder.";
+        resultsInfo.textContent = "Error loading data. Make sure providers.json is in the same folder as index.html.";
       });
 
     function buildFilters() {
+      // Unique Cred
+      const creds = Array.from(new Set(allData.map(r => r.Cred).filter(Boolean))).sort();
+      creds.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        credFilter.appendChild(opt);
+      });
+
       // Unique states
       const states = Array.from(new Set(allData.map(r => r.State).filter(Boolean))).sort();
       states.forEach(st => {
@@ -378,23 +461,25 @@
     }
 
     function applyFilters() {
-      const q = (searchInput.value || '').toLowerCase().trim();
+      const nameQ = (fullNameInput.value || '').toLowerCase().trim();
+      const credVal = credFilter.value;
+      const facilityQ = (facilityInput.value || '').toLowerCase().trim();
       const st = stateFilter.value;
       const sp = specFilter.value;
 
       filteredData = allData.filter(row => {
         let ok = true;
 
-        if (q) {
-          const text = [
-            row["Full Name"],
-            row.NPI,
-            row.Pri_spec,
-            row["Facility Name"],
-            row["City/Town"],
-            row.State
-          ].map(v => (v || '').toString().toLowerCase()).join(' ');
-          if (!text.includes(q)) ok = false;
+        if (nameQ) {
+          const nameText = (row["Full Name"] || '').toString().toLowerCase();
+          if (!nameText.includes(nameQ)) ok = false;
+        }
+
+        if (credVal && row.Cred !== credVal) ok = false;
+
+        if (facilityQ) {
+          const facText = (row["Facility Name"] || '').toString().toLowerCase();
+          if (!facText.includes(facilityQ)) ok = false;
         }
 
         if (st && row.State !== st) ok = false;
@@ -405,13 +490,14 @@
 
       currentPage = 1;
       renderTable();
+      exportCsvBtn.disabled = filteredData.length === 0;
     }
 
     function renderTable() {
       resultsBody.innerHTML = '';
 
       if (!filteredData.length) {
-        resultsBody.innerHTML = '<tr><td colspan="8" class="no-results">No matching records.</td></tr>';
+        resultsBody.innerHTML = '<tr><td colspan="5" class="no-results">No matching records.</td></tr>';
         resultsInfo.textContent = '0 results.';
         pageInfo.textContent = '';
         prevPageBtn.disabled = true;
@@ -437,14 +523,11 @@
           return cell;
         }
 
-        tr.appendChild(td(row.NPI));
+        tr.appendChild(td(row["Cred"]));
         tr.appendChild(td(row["Full Name"]));
         tr.appendChild(td(row.Pri_spec));
         tr.appendChild(td(row["Facility Name"]));
-        tr.appendChild(td(row["City/Town"]));
         tr.appendChild(td(row.State));
-        tr.appendChild(td(row["Telephone Number"]));
-        tr.appendChild(td(row["Facility Type"]));
 
         resultsBody.appendChild(tr);
       });
@@ -455,15 +538,67 @@
       nextPageBtn.disabled = currentPage === totalPages;
     }
 
-    searchInput.addEventListener('input', () => {
-      applyFilters();
-    });
+    function exportFilteredToCsv() {
+      if (!filteredData.length) return;
 
-    stateFilter.addEventListener('change', () => {
-      applyFilters();
-    });
+      const headers = ["Cred", "Full Name", "Pri_spec", "Facility Name", "State"];
 
-    specFilter.addEventListener('change', () => {
+      function esc(val) {
+        const v = (val ?? "").toString();
+        if (/[",\n]/.test(v)) {
+          return '"' + v.replace(/"/g, '""') + '"';
+        }
+        return v;
+      }
+
+      const rows = filteredData.map(row => [
+        esc(row["Cred"]),
+        esc(row["Full Name"]),
+        esc(row["Pri_spec"] || row["Pri_spec".toString()]), // safety
+        esc(row["Pri_spec"] || row.Pri_spec),
+        esc(row["Facility Name"]),
+        esc(row["State"] || row.State)
+      ]);
+
+      // fix Pri_spec duplication and State: rebuild rows properly
+      const rowsClean = filteredData.map(row => [
+        esc(row["Cred"]),
+        esc(row["Full Name"]),
+        esc(row["Pri_spec"] || row.Pri_spec),
+        esc(row["Facility Name"]),
+        esc(row["State"] || row.State)
+      ]);
+
+      const csvLines = [
+        headers.join(","),
+        ...rowsClean.map(r => r.join(","))
+      ];
+      const csvContent = csvLines.join("\r\n");
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "filtered_providers.csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Events
+    fullNameInput.addEventListener('input', applyFilters);
+    credFilter.addEventListener('change', applyFilters);
+    facilityInput.addEventListener('input', applyFilters);
+    stateFilter.addEventListener('change', applyFilters);
+    specFilter.addEventListener('change', applyFilters);
+
+    clearFiltersBtn.addEventListener('click', () => {
+      fullNameInput.value = '';
+      credFilter.value = '';
+      facilityInput.value = '';
+      stateFilter.value = '';
+      specFilter.value = '';
       applyFilters();
     });
 
@@ -481,7 +616,8 @@
         renderTable();
       }
     });
+
+    exportCsvBtn.addEventListener('click', exportFilteredToCsv);
   </script>
 </body>
 </html>
-
